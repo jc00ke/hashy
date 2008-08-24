@@ -6,7 +6,7 @@ var copy = function(inElement) {
 	} else {
 		var flashcopier = $('flashcopier');
 		flashcopier.innerHTML = '';
-		var divinfo = '<embed src="http://cryptoassets/flash/_clipboard.swf" FlashVars="clipboard='+encodeURIComponent(inElement.value)+'" width="0" height="0" type="application/x-shockwave-flash"></embed>';
+		var divinfo = '<embed src="http://hashyassets/flash/_clipboard.swf" FlashVars="clipboard='+encodeURIComponent(inElement.value)+'" width="0" height="0" type="application/x-shockwave-flash"></embed>';
 		flashcopier.innerHTML = divinfo;
 	}
 	new Effect.Highlight(inElement);
