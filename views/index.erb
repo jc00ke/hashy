@@ -1,0 +1,22 @@
+<textarea type="text" id="hashMe" onkeyup="hashMe(this.value);"></textarea>
+<fieldset id="results">
+	<legend>Results</legend>
+
+	<label for="md4">MD4: </label> <input type="text" id="md4" onclick="copy(this);" readonly="readonly" /><br />
+	<label for="md4">MD5: </label> <input type="text" id="md5" onclick="copy(this);" readonly="readonly" /><br />
+	<label for="md4">SHA-1: </label> <input type="text" id="sha1" onclick="copy(this);" readonly="readonly" />
+</fieldset>
+
+<strong>To do</strong>
+<ol>
+
+	<li>pack javascript files</li>
+	<li>make ui sexier</li>
+	<li>instructions</li>
+	<li>Event.observe for onkeyup and onclick events</li>
+	<li>look for <a href="http://en.wikipedia.org/wiki/HMAC" target="_blank">other hashes</a></li>
+	<li>select hex, string, or base-64 for value</li>
+
+	<li>um, basically make a javascript/ajax version of <a href="http://hashkiller.com/password/test" target="_blank">HashKiller</a></li>
+	<li>yeah, probably move it to <a href="http://rubyforge.org/projects/ezcrypto/" target="_blank">server-side</a></li>
+</ol>

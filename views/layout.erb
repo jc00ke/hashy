@@ -1,0 +1,52 @@
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+		<title><%= @title || 'Ha$hy, so money' %></title>
+			<style type="text/css" media="screen">
+
+				#results {
+					padding:10px;
+					border:1px solid #ccc;
+				}
+
+				#results label, #results input {
+					display: block;
+					width: 150px;
+					float: left;
+					margin-bottom: 10px;
+				}
+				#results input {
+					width: 400px;
+					height:28px;
+					font-size: 18px;
+					padding: 5px;
+					border: 1px solid blue;
+					color:#FF0000;
+				}
+
+				#results label {
+					text-align: right;
+					width: 75px;
+					padding-right: 20px;
+				}
+
+				#results br {
+					clear: left;
+				}
+
+			</style>
+
+		</head>
+		<body>
+			<%= yield %>
+			
+			<div id="flashcopier"/>
+
+			
+			<script type="text/javascript" src="http://cryptoassets/scripts/prototype.js"></script>
+			<script type="text/javascript" src="http://cryptoassets/scripts/scriptaculous.js?load=effects"></script>
+
+			<script type="text/javascript" src="http://cryptoassets/scripts/crypto.js"></script>
+
+		</body>		
+	</html>
