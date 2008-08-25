@@ -3,3 +3,6 @@
 Hashy is a little project I started to play around with javascript hashing.
 I then got interested in Sinatra and thought it'd be fun to work with github too. So, here I am.
 
+I'm not sure how to get Sinatra to serve static files as of yet, so you'll have to set up a little
+server for the http://hashyassets site for the scripts.
+
