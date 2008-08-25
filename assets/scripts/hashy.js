@@ -13,19 +13,29 @@ var copy = function(inElement) {
 	inElement.blur();
 };
 
-var hashMe = function(text) {
-
-	var url = new Template('/do/#{type}/#{text}');
-	var md5 = {type: 'md5', text: text };
-	
-	performRequest(url.evaluate(md5), 'md5');
+var hash = function(text) {
+	if (text != null && text.length > 0) {
+		var url = '/h/' + text;
+		new Ajax.Request(url, {
+			method: 'get',
+			onSuccess: function(transport) {
+				//$(updateContainer).value = transport.responseText;
+			}
+		});
+	}
+	else {
+		$('results').select('input').each(function(i) { i.value = ''; });
+	}
 };
 
-var performRequest = function(url, updateContainer) {
-	new Ajax.Request(url, {
-		method: 'get',
-		onSuccess: function(transport) {
-			$(updateContainer).value = transport.responseText;
-		}
-	});
+var init = function() {
+	new Form.Element.Observer('hashMe', 0.2, function(el, value){ hash(value); });
+	$('hashMe').value = 'ha$hy';	
 };
+
+document.observe('dom:loaded', function() {
+	setTimeout("new Effect.Highlight('hashMe');", 250);
+	setTimeout("new Effect.Highlight('results');", 750);
+	$('results').select('input').invoke('observe', 'click', function(){copy(this)});
+	setTimeout("init();", 1250);
+});
