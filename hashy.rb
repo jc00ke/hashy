@@ -6,11 +6,11 @@ require 'singleton'
 class Hashy
 	include Singleton
 
-	def initialize
+	def self.initialize
 		@values = {}
 	end
 
-	def self.get_hashes(text)		
+	def self.get_hashes(text)
 		if @values.has_key?(text)
 			@values[text]
 		else
@@ -23,6 +23,7 @@ class Hashy
 				$('sha2').value = '#{sha2}';
 			"
 			@values[text] = body
+			body
 		end
 	end
 end
@@ -36,6 +37,6 @@ end
 get '/h/:text' do
 	text = params[:text]
 	header 'Content-Type' => 'text/javascript'
-	hashy = Hashy.new
-	hashy.get_hashes('ha$hy')
+	@hashy = Hashy.new
+	@hashy.get_hashes('ha$hy')
 end
