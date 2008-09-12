@@ -6,13 +6,14 @@ require 'singleton'
 class Hashy
 	include Singleton
 
-	def self.initialize
+	def initialize
 		@values = {}
 	end
 
-	def self.get_hashes(text)
+	def get_hashes(text)
+		response = ''
 		if @values.has_key?(text)
-			@values[text]
+			response = @values[text]
 		else
 			md5 = Digest::MD5.hexdigest(text)
 			sha1 = Digest::SHA1.hexdigest(text)
@@ -22,9 +23,9 @@ class Hashy
 				$('sha1').value = '#{sha1}';
 				$('sha2').value = '#{sha2}';
 			"
-			@values[text] = body
-			body
+			response = @values[text] = body
 		end
+		response
 	end
 end
 	
@@ -35,8 +36,7 @@ get '/' do
 end
 
 get '/h/:text' do
-	text = params[:text]
 	header 'Content-Type' => 'text/javascript'
-	@hashy = Hashy.new
-	@hashy.get_hashes('ha$hy')
+	hashy = Hashy.instance
+	hashy.get_hashes(params[:text])
 end
